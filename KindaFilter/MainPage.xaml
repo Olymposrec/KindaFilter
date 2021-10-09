@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KindaFilter.MainPage" Padding="5">
+
+    <FlexLayout BackgroundColor="#e9e3e3" Direction="Row" AlignItems="Center">
+        <Button  BackgroundColor="#ff3061" Clicked="Button_Clicked" FontAttributes="Bold" Text="Click" VerticalOptions="Center" BorderWidth="1" CornerRadius="20" HorizontalOptions="Center" WidthRequest="100" HeightRequest="75" CharacterSpacing="0.5" FlexLayout.AlignSelf="Start" FlowDirection="LeftToRight" FontFamily="" FontSize="12" Margin="2" MinimumHeightRequest="50" MinimumWidthRequest="75" Padding="10" TextColor="#FFFFFF"/>
+        <Button  BackgroundColor="#ff3061" FontAttributes="Bold" Text="Click" VerticalOptions="Center" BorderWidth="1" CornerRadius="20" HorizontalOptions="Center" WidthRequest="100" HeightRequest="75" CharacterSpacing="0.5" FlexLayout.AlignSelf="Start" FlowDirection="LeftToRight" FontFamily="" FontSize="12" Margin="2" MinimumHeightRequest="50" MinimumWidthRequest="75" Padding="10" TextColor="#FFFFFF"/>
+        
+    </FlexLayout>
+
+</ContentPage>

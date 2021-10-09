@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KindaFilter.PagesFolder.LoginPage"
+             Shell.NavBarIsVisible="False" 
+             BackgroundColor="#cccccc">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView  VerticalOptions="Start"/>
+            <Frame BackgroundColor="#d9d9d9" HasShadow="True" HorizontalOptions="Center" WidthRequest="600" CornerRadius="10" MinimumHeightRequest="100" HeightRequest="75" Padding="15">
+                <Label Text="Kinda Filter" HorizontalTextAlignment="Center" TextColor="Black" FontFamily="Birthstone-Regular.ttf" FontAttributes="Bold" FontSize="50" ></Label>
+            </Frame>
+            <Frame BackgroundColor="#d9d9d9" HasShadow="True" HorizontalOptions="Center" WidthRequest="600" CornerRadius="10">
+                
+                <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="Center"   WidthRequest="600">
+                    <BoxView HeightRequest="16" VerticalOptions="Start"/>
+                    <Entry x:Name="Email" Text="{Binding Email}" Placeholder="  Email" 
+                           CharacterSpacing="1"
+                           BackgroundColor="#544e50"
+                           FontSize="16"
+                           PlaceholderColor="#fff"
+                           HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="#fff" FontFamily=""/>
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="  Password"
+                           CharacterSpacing="1"
+                           BackgroundColor="#544e50"
+                           PlaceholderColor="#fff" 
+                           HeightRequest="40"   
+                           FontSize="16"
+                           IsPassword="True"  
+                           TextColor="#fff"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                        <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="White"  
+                            FontAttributes="Bold" FontSize="18" HorizontalOptions="Center"
+                            WidthRequest="250"
+                            MinimumWidthRequest="100"
+                            HeightRequest="50"
+                            Margin="20"
+                            BackgroundColor="#ff3061"
+                            CornerRadius="10"/>
+                        <Button Clicked="Button_Clicked" Text="Sign Up" TextColor="White"  
+                            FontAttributes="Bold" FontSize="18" HorizontalOptions="Center"
+                            WidthRequest="250"
+                            MinimumWidthRequest="100"
+                            HeightRequest="50"
+                            Margin="20"
+                            BackgroundColor="#ff3061" 
+                            CornerRadius="10"/>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </Frame>
+           
+            <BoxView HeightRequest="250" VerticalOptions="End"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

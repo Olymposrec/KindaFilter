@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"             
+             x:Class="KindaFilter.PagesFolder.FirstEnterPage"
+             BackgroundColor="#ff3061">
+ 
+
+        <Grid VerticalOptions="CenterAndExpand"  RowDefinitions="450,auto" 
+              RowSpacing="50">
+    
+        <CarouselView Margin="0" IsBounceEnabled="True" ItemsSource="{Binding UserCollection}"
+                      IndicatorView="indicatorView">
+            
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="CenterAndExpand">
+                        <Label Text="Safe Net Connection" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" x:Name="lb_images" ></Label>
+
+                        <Image  Source="{Binding images}"
+                                WidthRequest="250"
+                                HeightRequest="300"
+                                Aspect="Fill"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="CenterAndExpand"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView Grid.Row="1"
+                       Margin="0,10,0,30"
+                       VerticalOptions="EndAndExpand"
+                       x:Name="indicatorView"
+                       IndicatorColor="Black"
+                       SelectedIndicatorColor="Yellow"
+                       HorizontalOptions="Center"/>
+    </Grid>
+    
+        
+    
+</ContentPage>
+    

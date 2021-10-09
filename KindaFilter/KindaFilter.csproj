@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Assets\family.png" />
+    <None Remove="Resources\Assets\lock.png" />
+    <None Remove="Resources\Assets\locked.png" />
+    <None Remove="Resources\Assets\shield.png" />
+    <None Remove="Resources\Assets\social.png" />
+    <None Remove="Resources\Assets\worldwide.png" />
+    <None Remove="Resources\Fonts\Birthstone-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\family.png" />
+    <EmbeddedResource Include="Resources\lock.png" />
+    <EmbeddedResource Include="Resources\locked.png" />
+    <EmbeddedResource Include="Resources\shield.png" />
+    <EmbeddedResource Include="Resources\social.png" />
+    <EmbeddedResource Include="Resources\worldwide.png" />
+    <EmbeddedResource Include="Resources\Fonts\Birthstone-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="PagesFolder\FirstEnterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PagesFolder\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PagesFolder\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Assets\" />
+  </ItemGroup>
+</Project>
