@@ -3,36 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"             
              x:Class="KindaFilter.PagesFolder.FirstEnterPage"
-             BackgroundColor="#ff3061">
- 
+             BackgroundImageSource="background.jpg"
+            BackgroundColor="Black">
 
-        <Grid VerticalOptions="CenterAndExpand"  RowDefinitions="450,auto" 
-              RowSpacing="50">
-    
-        <CarouselView Margin="0" IsBounceEnabled="True" ItemsSource="{Binding UserCollection}"
-                      IndicatorView="indicatorView">
+
+    <Grid VerticalOptions="CenterAndExpand"  RowDefinitions="500,auto" 
+              RowSpacing="75"
+              >
+        <CarouselView Margin="0" IsBounceEnabled="True"
+                      ItemsSource="{Binding PageImages}"
+                      IndicatorView="indicatorView"
+                      x:Name="MainCarouselView">
             
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalOptions="CenterAndExpand">
-                        <Label Text="Safe Net Connection" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" x:Name="lb_images" ></Label>
+                        <Button  Text="SIGN UP" TextColor="Yellow"
+                            VerticalOptions="Start"
+                            FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"
+                            WidthRequest="100"
+                            MinimumWidthRequest="30"
+                            HeightRequest="40"
+                            BackgroundColor="Black" 
+                            CornerRadius="10"
+                            Clicked="Button_SignUp"/>
 
                         <Image  Source="{Binding images}"
-                                WidthRequest="250"
-                                HeightRequest="300"
-                                Aspect="Fill"
+                                WidthRequest="50"
+                                HeightRequest="250"
+                                Aspect="AspectFit"
                                 HorizontalOptions="FillAndExpand"
-                                VerticalOptions="CenterAndExpand"/>
+                                VerticalOptions="CenterAndExpand"
+                                
+                                />
+                        <Label   FontSize="25"
+                 Text="{Binding messages}"
+                 FontAttributes="Bold"
+                 TextColor="Yellow"
+                 VerticalOptions="End"
+                 HorizontalOptions="Center"></Label>
                         
+
                     </Grid>
                 </DataTemplate>
+                
             </CarouselView.ItemTemplate>
         </CarouselView>
         <IndicatorView Grid.Row="1"
                        Margin="0,10,0,30"
                        VerticalOptions="EndAndExpand"
                        x:Name="indicatorView"
-                       IndicatorColor="Black"
+                       IndicatorColor="White"
                        SelectedIndicatorColor="Yellow"
                        HorizontalOptions="Center"/>
     </Grid>
@@ -40,4 +61,3 @@
         
     
 </ContentPage>
-    

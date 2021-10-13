@@ -31,17 +31,6 @@ namespace KindaFilter.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("Password"));
             }
         }
-        public ICommand SubmitCommand { protected set; get; }
-        public LoginViewModel()
-        {
-            SubmitCommand = new Command(OnSubmit);
-        }
-        public void OnSubmit()
-        {
-            if (email != "macoratti@yahoo.com" || password != "secret")
-            {
-                DisplayInvalidLoginPrompt();
-            }
-        }
+
     }
 }

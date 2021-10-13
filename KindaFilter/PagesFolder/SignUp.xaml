@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="True"
+             BackgroundImageSource="background.jpg"
+             x:Class="KindaFilter.PagesFolder.SignUp"
+             Title="Sign Up Form">
+    <NavigationPage.TitleView>
+        <AbsoluteLayout VerticalOptions="CenterAndExpand">
+            <Label Text="Sign Up Form"
+                   CharacterSpacing=".5"
+                   TextColor="Yellow"
+                   FontAttributes="Bold"
+                   FontSize="16"></Label>
+        </AbsoluteLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Frame      HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     WidthRequest="300"
+                     MinimumWidthRequest="100"
+                     HeightRequest="350"
+                     MinimumHeightRequest="100"
+                    CornerRadius="10"
+                     BackgroundColor="#191e29"
+                     Padding="50"
+                     Margin="60">
+        <StackLayout Spacing="10">
+            <BoxView HeightRequest="16" VerticalOptions="Start"/>
+
+
+            <Entry Placeholder="First Name" x:Name="First"
+                   CharacterSpacing=".8"
+                   TextColor="Black"
+                   PlaceholderColor="Black"
+                   BackgroundColor="White"
+                   FontSize="14"
+                   FontAttributes="Bold"/>
+            <Entry Placeholder="Last Name" x:Name="Last"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   CharacterSpacing=".8"
+                   PlaceholderColor="Black"
+                   BackgroundColor="White"
+                   FontSize="14"/>
+            <Entry Placeholder="Email" x:Name="Email"
+                   FontAttributes="Bold"
+                   TextColor="Black" 
+                   CharacterSpacing=".8"
+                   PlaceholderColor="Black"
+                   BackgroundColor="White"
+                   FontSize="14"/>
+            <Entry Placeholder="Password" x:Name="Pass"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   CharacterSpacing=".8"
+                   PlaceholderColor="Black"
+                   BackgroundColor="White"
+                   FontSize="14"/>
+            <Entry Placeholder="Confirm Password"
+                   FontAttributes="Bold"
+                   x:Name="Confirm"
+                   CharacterSpacing=".8"
+                   TextColor="Black"
+                   PlaceholderColor="Black"
+                   BackgroundColor="White"
+                   FontSize="14"/>
+                <BoxView HeightRequest="16" VerticalOptions="Start"/>
+                <Button 
+                   Text="SIGN UP" 
+                   CharacterSpacing=".8"
+                   TextColor="Yellow"  
+                   FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"
+                   WidthRequest="250"
+                   MinimumWidthRequest="100"
+                   HeightRequest="50"
+                   Margin="20"
+                   BackgroundColor="#122b43"
+                   CornerRadius="10"/>
+
+        </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

@@ -15,25 +15,27 @@ namespace KindaFilter.PagesFolder
     {
         public LoginPage()
         {
-            var vm = new LoginViewModel();
-            this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-
-            Email.Completed += (object sender, EventArgs e) =>
-            {
-                Password.Focus();
-            };
-
-            Password.Completed += (object sender, EventArgs e) =>
-            {
-                vm.SubmitCommand.Execute(null);
-            };
         }
 
-        void Button_Clicked(object sender, EventArgs e)
+        void Button_SignUp(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new KindaFilter.PagesFolder.HomePage());
+            Navigation.PushAsync(new KindaFilter.PagesFolder.SignUp());
         }
+
+        private void Button_LogIn(object sender, EventArgs e)
+        {
+            if (Email.Text != "admin@admin.com" || Password.Text!= "admin")
+            {
+                DisplayAlert("Error", "Invalid Login, try again", "OK");
+            }
+            else
+            {
+                Navigation.PushAsync(new KindaFilter.PagesFolder.HomePage());
+            }
+        }
+
+      
     }
 }
