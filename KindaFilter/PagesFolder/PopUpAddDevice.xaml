@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            Size="300,300"
+             x:Class="KindaFilter.PagesFolder.PopUpAddDevice">
+
+    <StackLayout
+        Orientation="Vertical"
+        Padding="20">
+        
+        <Entry x:Name="Email" 
+               Placeholder="  Child Email" 
+               CharacterSpacing="1"
+               BackgroundColor="White"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               WidthRequest="350"
+               MinimumWidthRequest="150"
+               HeightRequest="40"   
+               MinimumHeightRequest="25"
+               FontSize="16"
+               FontAttributes="Bold"
+               PlaceholderColor="Black"
+               Keyboard="Email"  
+               TextColor="Black"/>
+
+        <Grid>
+            <Button 
+               Text="Add Device" 
+               TextColor="Black"  
+               FontAttributes="Bold" 
+               FontSize="18" 
+               Margin="20"
+               BackgroundColor="white"
+              HorizontalOptions="Start"
+               VerticalOptions="Center"
+               CornerRadius="10"
+                Clicked="AddChildDevice_ClickAsync"/>
+            <Button 
+               Text="Close" 
+               TextColor="Black"  
+               FontAttributes="Bold" 
+               FontSize="18" 
+               Margin="20"
+               BackgroundColor="white"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               CornerRadius="10"
+                Clicked="ClosePopUp_Click"/>
+        </Grid>
+       
+    </StackLayout>
+    
+    </xct:Popup>

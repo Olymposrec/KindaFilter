@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"             
              x:Class="KindaFilter.PagesFolder.FirstEnterPage"
-             BackgroundImageSource="background.jpg"
             BackgroundColor="Black">
 
-
-    <Grid VerticalOptions="CenterAndExpand"  RowDefinitions="500,auto" 
+    
+       
+    
+    
+    <Grid VerticalOptions="Center"  RowDefinitions="550,Auto" 
+          HorizontalOptions="Center"
               RowSpacing="75"
               >
+
+       
         <CarouselView Margin="0" IsBounceEnabled="True"
                       ItemsSource="{Binding PageImages}"
                       IndicatorView="indicatorView"
@@ -17,29 +22,19 @@
             
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalOptions="CenterAndExpand">
-                        <Button  Text="SIGN UP" TextColor="Yellow"
-                            VerticalOptions="Start"
-                            FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"
-                            WidthRequest="100"
-                            MinimumWidthRequest="30"
-                            HeightRequest="40"
-                            BackgroundColor="Black" 
-                            CornerRadius="10"
-                            Clicked="Button_SignUp"/>
-
+                    <Grid >
                         <Image  Source="{Binding images}"
-                                WidthRequest="50"
+                                WidthRequest="250"
                                 HeightRequest="250"
-                                Aspect="AspectFit"
-                                HorizontalOptions="FillAndExpand"
+                                Aspect="AspectFill"
+                                HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"
                                 
                                 />
                         <Label   FontSize="25"
                  Text="{Binding messages}"
                  FontAttributes="Bold"
-                 TextColor="Yellow"
+                 TextColor="Black"
                  VerticalOptions="End"
                  HorizontalOptions="Center"></Label>
                         
@@ -54,10 +49,26 @@
                        VerticalOptions="EndAndExpand"
                        x:Name="indicatorView"
                        IndicatorColor="White"
-                       SelectedIndicatorColor="Yellow"
+                       SelectedIndicatorColor="Black"
                        HorizontalOptions="Center"/>
+        <Button  Text="SIGN UP" TextColor="Yellow"
+                            VerticalOptions="Start"
+                            FontAttributes="Bold" FontSize="16" 
+                            HorizontalOptions="Center"
+                            WidthRequest="100"
+                            MinimumWidthRequest="30"
+                            HeightRequest="40"
+                            BackgroundColor="Black" 
+                            CornerRadius="10"
+                            Clicked="Button_SignUp"
+                            Margin="5"/>
     </Grid>
-    
-        
-    
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#ff4000" Offset="0.1" />
+            <GradientStop Color="#ff9f00" Offset="0.5" />
+        </LinearGradientBrush>
+
+    </ContentPage.Background>
+
 </ContentPage>

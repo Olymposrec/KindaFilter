@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KindaFilter.PagesFolder.Settings"
+              Shell.NavBarIsVisible="False"  
+             BackgroundColor="#ff8a00"
+              Title="Settings">
+    <ContentPage.Content>
+        <Grid >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#ff4000" Offset="0.1" />
+                    <GradientStop Color="#ff9f00" Offset="0.5" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackLayout  >
+
+                <Frame BackgroundColor="Transparent"
+                       HorizontalOptions="CenterAndExpand"
+                       WidthRequest="500"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    >
+                    <StackLayout >
+                        <Label Text="Internet Ayarları" FontSize="24" FontAttributes="Bold" TextColor="Black" ></Label>
+                        <Grid Padding="5">
+                        <Label Text="USOM' un Belirlediği Zararlı Sitelerden Koru." FontSize="16" TextColor="Black" ></Label>
+                        <Switch OnColor="GreenYellow"  ThumbColor="White" HorizontalOptions="End" x:Name="UsomProtect"></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                        <Label Text="Benim Belirlediğim Sitelerden Koru." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="OwnProtect"></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                        <Label Text="Zararlı Sitelere İstek Gönderilirse Interneti Kes." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White"  HorizontalOptions="End" x:Name="CutTheNetConnect"></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                        <Label Text="Zararlı Sitelerden İstek Alınırsa Bana Bildir." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White"  HorizontalOptions="End" x:Name="TellMeIfDangerSite" ></Switch>
+                        </Grid>
+                         
+                        
+                        
+                        <Label Text="Giriş Değerleri Ayarları" FontSize="24" FontAttributes="Bold" TextColor="Black"></Label>
+                        <Grid  Padding="5">
+                        <Label Text="Argo Kelime Gruplarını Kayıt Defterlerine Yazdır." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End"  x:Name="SaveRecords" ></Switch>
+                        </Grid>
+                         <Grid  Padding="5">
+                        <Label Text="Argo Kelimelerin Kullanımında Bana Bildir." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="TellMeIfSlang" ></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                            <Label  Text="Belirlediğim Kelimeleri Yasakla." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="BanSpecificWords"></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                            <Label  Text="Yasaklı Kelime Kullanımını Bana Bildir." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="TellMeIfUseBanWords"></Switch>
+                        </Grid>
+                        
+                        <Label Text="Bildirim Ayarları" FontSize="24" FontAttributes="Bold" TextColor="Black"></Label>
+
+                        <Grid  Padding="5">
+                            <Label Text="Günlük Durum Raporu Gönder." FontSize="16" TextColor="Black"></Label>
+                            <Switch  OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="SendDailyReport"></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                            <Label Text="Mail Olarak Rapor Gönder." FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="SendEmailReport" ></Switch>
+                        </Grid>
+                        <Grid  Padding="5">
+                            <Label  Text="Haftalık Olarak Kayıt Defterlerini Mail Olarak 
+                                    Gönder" FontSize="16" TextColor="Black"></Label>
+                            <Switch OnColor="GreenYellow" ThumbColor="White" HorizontalOptions="End" x:Name="SendWeaklyEmailReport"></Switch>
+                        </Grid>
+                        <Grid>
+                            
+                        
+                        <Button x:Name="SaveButton"
+                                    Text="Save"
+                                    TextColor="#ff9f00"
+                                    FontAttributes="Bold" FontSize="16" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="100"
+                                    MinimumWidthRequest="30"
+                                    HeightRequest="50"
+                                    BackgroundColor="Black" 
+                                    CornerRadius="10" 
+                                    Clicked="SaveButton_Clicked"/>
+                        
+
+                        </Grid>
+
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

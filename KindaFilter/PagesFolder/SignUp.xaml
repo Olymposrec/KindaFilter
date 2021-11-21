@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Shell.NavBarIsVisible="True"
-             BackgroundImageSource="background.jpg"
              x:Class="KindaFilter.PagesFolder.SignUp"
+             Shell.NavBarIsVisible="True"
              Title="Sign Up Form">
     <NavigationPage.TitleView>
         <AbsoluteLayout VerticalOptions="CenterAndExpand">
@@ -15,6 +14,7 @@
         </AbsoluteLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
+
         <Frame      HorizontalOptions="Center"
                      VerticalOptions="Center"
                      WidthRequest="300"
@@ -25,25 +25,21 @@
                      BackgroundColor="#191e29"
                      Padding="50"
                      Margin="60">
+          
+           
         <StackLayout Spacing="10">
-            <BoxView HeightRequest="16" VerticalOptions="Start"/>
+               
+                <BoxView HeightRequest="16" VerticalOptions="Start"/>
 
 
-            <Entry Placeholder="First Name" x:Name="First"
-                   CharacterSpacing=".8"
-                   TextColor="Black"
-                   PlaceholderColor="Black"
-                   BackgroundColor="White"
-                   FontSize="14"
-                   FontAttributes="Bold"/>
-            <Entry Placeholder="Last Name" x:Name="Last"
+                <Entry Placeholder="Display Name" x:Name="DisplayName"
                    FontAttributes="Bold"
-                   TextColor="Black"
+                   TextColor="Black" 
                    CharacterSpacing=".8"
                    PlaceholderColor="Black"
                    BackgroundColor="White"
                    FontSize="14"/>
-            <Entry Placeholder="Email" x:Name="Email"
+                <Entry Placeholder="Email" x:Name="Email"
                    FontAttributes="Bold"
                    TextColor="Black" 
                    CharacterSpacing=".8"
@@ -56,6 +52,7 @@
                    CharacterSpacing=".8"
                    PlaceholderColor="Black"
                    BackgroundColor="White"
+                   IsPassword="True"
                    FontSize="14"/>
             <Entry Placeholder="Confirm Password"
                    FontAttributes="Bold"
@@ -63,6 +60,7 @@
                    CharacterSpacing=".8"
                    TextColor="Black"
                    PlaceholderColor="Black"
+                   IsPassword="True"
                    BackgroundColor="White"
                    FontSize="14"/>
                 <BoxView HeightRequest="16" VerticalOptions="Start"/>
@@ -76,9 +74,16 @@
                    HeightRequest="50"
                    Margin="20"
                    BackgroundColor="#122b43"
-                   CornerRadius="10"/>
+                   CornerRadius="10"
+                   Clicked="SingUp_Button"/>
 
         </StackLayout>
         </Frame>
     </ContentPage.Content>
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#ff4000" Offset="0.1" />
+            <GradientStop Color="#ff9f00" Offset="0.5" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 </ContentPage>

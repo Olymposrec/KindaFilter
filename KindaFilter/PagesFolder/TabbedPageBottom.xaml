@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:KindaFilter="clr-namespace:KindaFilter.PagesFolder"
+            x:Class="KindaFilter.PagesFolder.TabbedPageBottom"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            Shell.NavBarIsVisible="False"  
+            BarBackground="#fff"
+            BarTextColor="Black"
+            >
+  <!--Pages can be added as references or inline-->
+    
+
+    <KindaFilter:HomePage IconImageSource="home_button.png" ></KindaFilter:HomePage>
+    <KindaFilter:Registers IconImageSource="registers.png"></KindaFilter:Registers>
+    <KindaFilter:DeviceManagement IconImageSource="device_management.png"></KindaFilter:DeviceManagement>
+    <KindaFilter:Settings IconImageSource="settings.png"></KindaFilter:Settings>
+    <KindaFilter:Profile IconImageSource="user.png"></KindaFilter:Profile>
+    
+    
+</TabbedPage>

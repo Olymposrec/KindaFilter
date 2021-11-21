@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
              x:Class="KindaFilter.PagesFolder.LoginPage"
-             BackgroundImageSource="background.jpg"
              BackgroundColor="Black">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#ff4000" Offset="0.1" />
+                    <GradientStop Color="#ff9f00" Offset="0.5" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
             <BoxView  VerticalOptions="Start"/>
             <Frame BackgroundColor="#191e29" HasShadow="True" HorizontalOptions="Center" WidthRequest="600" CornerRadius="10" MinimumHeightRequest="100" HeightRequest="75" Padding="15">
                 <Label Text="Kinda Filter" HorizontalTextAlignment="Center" TextColor="Yellow" FontFamily="Birthstone-Regular.ttf" FontAttributes="Bold" FontSize="50" ></Label>
@@ -46,7 +51,7 @@
                                 BackgroundColor="#122b43"
                                 CornerRadius="10"
                                 Clicked="Button_LogIn"/>
-                        <Button Clicked="Button_SignUp"
+                        <Button Clicked="Button_Signup"
                                 Text="Sign Up"
                                 TextColor="Yellow"  
                                 FontAttributes="Bold" FontSize="18" HorizontalOptions="Center"

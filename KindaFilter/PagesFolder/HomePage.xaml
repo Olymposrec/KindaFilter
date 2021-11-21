@@ -2,12 +2,150 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KindaFilter.PagesFolder.HomePage"
-              BackgroundColor="#cccccc">
+              Title="Home Page"
+              Shell.NavBarIsVisible="False" 
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="HELLO WORLD!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#ff4000" Offset="0.1" />
+                    <GradientStop Color="#ff9f00" Offset="0.5" />
+                </LinearGradientBrush>
+            </Grid.Background>
+        
+                <StackLayout  >
+                <BoxView WidthRequest="250"
+                         HeightRequest="50">
+                    
+                </BoxView>
+                <ImageButton 
+                        x:Name="ProfileImage"
+                        Source="profilico.png"
+                        Padding="20"
+                         BackgroundColor="White"
+                         Opacity="1"
+                         CornerRadius="360"
+                         WidthRequest="250"
+                         HeightRequest="250"
+                          
+                         Aspect="AspectFill"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="Start" ></ImageButton>
+                <Frame BackgroundColor="Transparent"
+                       Margin="10"
+                       VerticalOptions="Start"
+                       HorizontalOptions="CenterAndExpand"
+                       WidthRequest="500"
+                       HeightRequest="300"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    >
+                    <StackLayout>
+                        <Grid>
+                            <Label Text="Mail:"
+                                   HorizontalOptions="Start"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                            <Label x:Name="EMail"
+                               Text="EMail"
+                               HorizontalOptions="Center"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                        </Grid>
+                        <Grid>
+                            <Label Text="First Name:"
+                                   HorizontalOptions="Start"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                            <Label x:Name="FirstName"
+                               HorizontalOptions="Center"
+                               Text="FirstName"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                        </Grid>
+                        <Grid>
+                            <Label Text="Last Name:"
+                                   HorizontalOptions="Start"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                            <Label x:Name="Surname" 
+                               Text="Surname"  
+                               HorizontalOptions="Center"
+                           CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"/>
+                        </Grid>
+                        <Grid>
+                            
+                        
+                        <Label Text="Phone:"
+                                   HorizontalOptions="Start"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                        <Label x:Name="Phone" 
+                               Text="Phone" 
+                           CharacterSpacing="1"
+                               HorizontalOptions="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"/>
+                        </Grid>
+                        <Grid>
+                            <Label Text="UserName:"
+                                   HorizontalOptions="Start"
+                               CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"></Label>
+                      
+                        <Label x:Name="UserName" 
+                               Text="UserName" 
+                           CharacterSpacing="1"
+                               HorizontalOptions="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HeightRequest="40"   
+                           TextColor="Black"/>
+                        </Grid>
+                        <Button Clicked="Button_LogOut"
+                                Text="Log Out"
+                                TextColor="Yellow"  
+                                FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"
+                                WidthRequest="250"
+                                MinimumWidthRequest="100"
+                                HeightRequest="50"
+                                Margin="20"
+                                BackgroundColor="#122b43" 
+                                CornerRadius="10"/>
+
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

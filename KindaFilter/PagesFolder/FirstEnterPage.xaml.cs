@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 using Xamarin.Forms;
@@ -49,12 +45,10 @@ namespace KindaFilter.PagesFolder
 
         public bool IsFirstLaunch
         {
-            get => Preferences.Get("IsFirstLaunch", true);
+            get => Preferences.Get("IsFirstLaunch",true);
             set
             {
                 Preferences.Set("IsFirstLaunch", false);
-                
-                OnPropertyChanged(nameof(IsFirstLaunch));
             }
         }
 
@@ -74,9 +68,9 @@ namespace KindaFilter.PagesFolder
          
         }
 
-        private void Button_SignUp(object sender, EventArgs e)
+        private async void Button_SignUp(object sender, EventArgs e)
         {
-            _ = Navigation.PushAsync(new LoginPage());
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

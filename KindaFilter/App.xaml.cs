@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.Diagnostics;
+using Android.InputMethodServices;
+using Android.Runtime;
+using Android.Views;
 
 [assembly:ExportFont("Birthstone-Regular.ttf")]
 
@@ -9,33 +13,57 @@ namespace KindaFilter
 {
     public partial class App : Application
     {
+        
         public App()
         {
+
             InitializeComponent();
 
-            KindaFilter.PagesFolder.FirstEnterPage isItFirst = new PagesFolder.FirstEnterPage();
-
-            if (isItFirst.IsFirstLaunch==true)
+            if (Device.RuntimePlatform==Device.Android || Device.RuntimePlatform==Device.UWP)
             {
-                MainPage = new NavigationPage(new PagesFolder.FirstEnterPage());
+                if (!string.IsNullOrEmpty(Preferences.Get("FirebaseRefreshToken","")))
+                {
+                    MainPage = new NavigationPage(new PagesFolder.TabbedPageBottom());
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new PagesFolder.FirstEnterPage());
+                }
             }
             else
             {
-                MainPage = new NavigationPage(new PagesFolder.LoginPage());
+               
+               MainPage = new NavigationPage(new PagesFolder.FirstEnterPage());
+                
             }
+            
+            Device.SetFlags(new[] { "Brush_Experimental" });
+            
 
         }
-
+        public async void GetPressedKey()
+        {
+            
+        }
         protected override void OnStart()
         {
+            Debug.WriteLine("OnStart PROGRAM BASLADI");
+
+           
         }
 
         protected override void OnSleep()
         {
+
+          
         }
 
         protected override void OnResume()
         {
+            Debug.WriteLine("OnStart PROGRAM DEVAM EDIYOR");
         }
+
+      
+
     }
 }

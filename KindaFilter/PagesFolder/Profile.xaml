@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KindaFilter.PagesFolder.Profile"
+              Shell.NavBarIsVisible="False"
+             BackgroundColor="#f76d6a"
+             Title="Profile">
+    
+    <ContentPage.Content>
+        <Grid Padding="50"
+              >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#ff4000" Offset="0.1" />
+                    <GradientStop Color="#ff9f00" Offset="0.5" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackLayout >
+                <ImageButton 
+                x:Name="UploadImage"
+                        Clicked="ImageButton_Clicked"
+                         Source="profilico.png"
+                         BindingContext="/test/img/test"
+                         BackgroundColor="White"
+                         Opacity="1"
+                         CornerRadius="360"
+                         WidthRequest="250"
+                         HeightRequest="250"
+                         Aspect="AspectFill"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="Start" ></ImageButton>
+                
+                <Frame BackgroundColor="Transparent"
+                       Margin="10"
+                       VerticalOptions="Start"
+                       HorizontalOptions="CenterAndExpand"
+                       WidthRequest="500"
+                       HeightRequest="300"
+                    CornerRadius="10"
+                    HasShadow="True"
+                    >
+                    <StackLayout>
+                        
+                <Entry x:Name="FirstName"  Placeholder="  Name" 
+                       Text="{Binding FirstName}"
+                           CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           BackgroundColor="Black"
+                           PlaceholderColor="White"
+                           HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"/>
+                <Entry x:Name="LastName" 
+                       Text="{Binding LastName}"
+                        Placeholder="  Surname" 
+                           CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                             BackgroundColor="Black"
+                           PlaceholderColor="White"
+                           HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"/>
+                <Entry x:Name="Phone" Text="{Binding PhoneNumber}" 
+                       Placeholder="  Phone" 
+                           CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                        BackgroundColor="Black"
+                           PlaceholderColor="White"
+                           HeightRequest="40"   
+                           Keyboard="Telephone"  
+                           TextColor="White"/>
+                        <Entry x:Name="DisplayName"
+                               Text="{Binding DisplayName}" Placeholder="  Display Name" 
+                           CharacterSpacing="1"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                        BackgroundColor="Black"
+                           PlaceholderColor="White"
+                           HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"></Entry>
+
+                
+                        <Grid>
+                            <Button x:Name="SaveButton"
+                                    Text="Save"
+                                    TextColor="#ff9f00"
+                                    FontAttributes="Bold" FontSize="16" 
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    WidthRequest="100"
+                                    MinimumWidthRequest="30"
+                                    HeightRequest="50"
+                                    BackgroundColor="Black" 
+                                    CornerRadius="10"
+                                    Clicked="Button_SaveData"
+                                    Command="{Binding AddUserInfoCommand}"/>
+                            <Button x:Name="UpdateButton"
+                                    Text="Update"
+                                    TextColor="#ff9f00"
+                                    FontAttributes="Bold" FontSize="16" 
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    WidthRequest="100"
+                                    MinimumWidthRequest="30"
+                                    HeightRequest="50"
+                                    BackgroundColor="Black" 
+                                    CornerRadius="10" 
+                                    Clicked="UpdateButton_Clicked"/>
+
+                            <!--<Button Text="SHOWPOPUP"
+                                    Clicked="Button_ShoPopUp">
+                                
+                            </Button>-->
+
+                            <ListView Grid.Row="1" ItemsSource="{Binding UsersInfo}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding FirstName}"></Label>
+                                                <Label Text="{Binding LastName}"></Label>
+                                                <Label Text="{Binding PhoneNumber}"></Label>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                           
+                        </Grid>
+                        
+                    </StackLayout>
+                </Frame>
+           
+
+            </StackLayout>
+
+          
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
