@@ -41,10 +41,7 @@ namespace KindaFilter
             
 
         }
-        public async void GetPressedKey()
-        {
-            
-        }
+
         protected override void OnStart()
         {
             Debug.WriteLine("OnStart PROGRAM BASLADI");

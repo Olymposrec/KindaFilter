@@ -36,12 +36,10 @@
                             <Switch OnColor="GreenYellow" ThumbColor="White"  HorizontalOptions="End" x:Name="CutTheNetConnect"></Switch>
                         </Grid>
                         <Grid  Padding="5">
-                        <Label Text="Zararlı Sitelerden İstek Alınırsa Bana Bildir." FontSize="16" TextColor="Black"></Label>
+                            <Label Text="Zararlı Sitelerden İstek Alınırsa Bana Bildir." FontSize="16" TextColor="Black"></Label>
                             <Switch OnColor="GreenYellow" ThumbColor="White"  HorizontalOptions="End" x:Name="TellMeIfDangerSite" ></Switch>
                         </Grid>
-                         
-                        
-                        
+
                         <Label Text="Giriş Değerleri Ayarları" FontSize="24" FontAttributes="Bold" TextColor="Black"></Label>
                         <Grid  Padding="5">
                         <Label Text="Argo Kelime Gruplarını Kayıt Defterlerine Yazdır." FontSize="16" TextColor="Black"></Label>

@@ -1,24 +1,25 @@
-﻿
-using KindaFilter.Interfaces;
+﻿using KindaFilter.Interfaces;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using Xamarin.Essentials;
+using KindaFilter.Services;
 
 namespace KindaFilter.PagesFolder
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public string WebAPIKey = "AIzaSyDQveJfg1KOrqz5_vBmj8WeQL4dFWs-umA";
         private readonly IAuth auth;
+        DBFirebase services;
         public LoginPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             auth = DependencyService.Get<IAuth>();
+            services = new DBFirebase();
         }
 
         private async void Button_Signup(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace KindaFilter.PagesFolder
                 }
                 else
                 {
-                    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
+                    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(services.WebAPIKey.ToString()));
                     try
                     {
                         var auth = await authProvider.SignInWithEmailAndPasswordAsync(Email.Text,Password.Text);
@@ -60,7 +61,7 @@ namespace KindaFilter.PagesFolder
             {
                 if(Email.Text!=null && Password.Text!=null)
                 {
-                    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
+                    var authProvider = new FirebaseAuthProvider(new FirebaseConfig(services.WebAPIKey.ToString()));
                     try
                     {
                         var auth = await authProvider.SignInWithEmailAndPasswordAsync(Email.Text,Password.Text);

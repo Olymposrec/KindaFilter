@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
 using System.ComponentModel;
-using System.Windows.Input;
-using System.Text;
 
 namespace KindaFilter.ViewModels
 {

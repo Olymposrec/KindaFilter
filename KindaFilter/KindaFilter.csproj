@@ -83,10 +83,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="PagesFolder\PopUpUp.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>

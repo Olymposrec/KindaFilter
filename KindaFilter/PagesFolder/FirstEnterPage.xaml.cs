@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Xamarin.Essentials;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

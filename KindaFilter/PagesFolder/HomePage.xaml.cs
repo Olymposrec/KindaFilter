@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using Xamarin.Essentials;
 using Firebase.Auth;
 using Firebase.Database;
-using KindaFilter.Models;
 using System.Linq;
 using KindaFilter.ViewModels;
 using KindaFilter.Services;
@@ -15,58 +14,40 @@ namespace KindaFilter.PagesFolder
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public string WebAPIKey= "AIzaSyDQveJfg1KOrqz5_vBmj8WeQL4dFWs-umA";
-        FirebaseClient client;
+        DBFirebase services;
         public HomePage()
         {
             
             InitializeComponent();
-            BindingContext = new UsersInfoView();
-            GetProfileInformationAndRefreshToken();
+            services = new DBFirebase();
+            GetProfileInfo();
         }
 
-       private async void GetProfileInformationAndRefreshToken()
+       private async void GetProfileInfo()
         {
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(services.WebAPIKey.ToString()));
+            var savedFirebaseAuth = JsonConvert.DeserializeObject<FirebaseAuth>(Preferences.Get("FirebaseRefreshToken", ""));
+            var refreshedContent = await authProvider.RefreshAuthAsync(savedFirebaseAuth);
+            FirebaseObject<User> fireBaseObject = await services.SetProfileInfo();
 
-            try
-           {
-                client = new FirebaseClient("https://kinda-filter-default-rtdb.europe-west1.firebasedatabase.app/");
-                var savedFirebaseAuth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FirebaseRefreshToken", ""));
-                var refreshedContent = await authProvider.RefreshAuthAsync(savedFirebaseAuth);
-                var result = (await client
-                    .Child("Users")
-                    .OnceAsync<User>()).FirstOrDefault(a => a.Object.Email == savedFirebaseAuth.User.Email);
-                 
-                
-                if (result != null)
-                {
-                    
-                    EMail.Text = result.Object.Email.ToString();
-                    FirstName.Text = result.Object.FirstName.ToString();
-                    Surname.Text = result.Object.LastName.ToString();
-                    Phone.Text = result.Object.PhoneNumber.ToString();
-                    UserName.Text = result.Object.DisplayName.ToString();
-                    ProfileImage.Source = result.Object.PhotoUrl.ToString();
-
-                    Preferences.Set("FirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
-                }else
-                {
-                    EMail.Text = savedFirebaseAuth.User.Email;
-                    UserName.Text = savedFirebaseAuth.User.DisplayName;
-                    Preferences.Set("FirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
-                }
-               
-                
-            }
-            catch (Exception ex)
+            if (fireBaseObject != null)
             {
-                Console.WriteLine(ex.Message);
-                await Navigation.PushAsync(new LoginPage());
-                await App.Current.MainPage.DisplayAlert("Alert", "something went wrong", "OK!");
-            }
-        }
+                EMail.Text = fireBaseObject.Object.Email.ToString();
+                FirstName.Text = fireBaseObject.Object.FirstName.ToString();
+                Surname.Text = fireBaseObject.Object.LastName.ToString();
+                Phone.Text = fireBaseObject.Object.PhoneNumber.ToString();
+                UserName.Text = fireBaseObject.Object.DisplayName.ToString();
+                ProfileImage.Source = fireBaseObject.Object.PhotoUrl.ToString();
 
+                Preferences.Set("FirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
+            }else
+            {
+                EMail.Text = savedFirebaseAuth.User.Email;
+                UserName.Text = savedFirebaseAuth.User.DisplayName;
+                Preferences.Set("FirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
+            }   
+          
+        }
         private void Button_LogOut(object sender, EventArgs e)
         {
             Preferences.Remove("FirebaseRefreshToken");

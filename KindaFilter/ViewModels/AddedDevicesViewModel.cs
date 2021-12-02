@@ -1,21 +1,13 @@
-﻿using Firebase.Auth;
-using Firebase.Database;
-using KindaFilter.Models;
+﻿using KindaFilter.Models;
 using KindaFilter.Services;
-using MvvmHelpers;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace KindaFilter.ViewModels
 {
-    public class AddedDevicesViewModel : BaseViewModel
+    public class AddedDevicesViewModel : BindableObject
     {
         public string UserMail { get; set; }
         public string ChildEmail { get; set; }
@@ -39,10 +31,8 @@ namespace KindaFilter.ViewModels
         {
             services = new DBFirebase();
             NewAddedDevices = services.GetDevices();
-
-
         }
-       
 
+        
     }
 }

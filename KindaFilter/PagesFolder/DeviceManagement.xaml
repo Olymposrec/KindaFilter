@@ -11,25 +11,27 @@
                 <LinearGradientBrush  EndPoint="0,1">
                     <GradientStop Color="#ff4000" Offset="0.1" />
                     <GradientStop Color="#ff9f00" Offset="0.5" />
-                    
+
                 </LinearGradientBrush>
             </Grid.Background>
             <StackLayout>
-                <ListView Grid.Column="2" Grid.Row="1" ItemsSource="{Binding NewAddedDevices}">
+                <ListView x:Name="Data"  Grid.Column="3" Grid.Row="2" ItemsSource="{Binding AddAsChildRequest}"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell >
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Child:" TextColor="Black" FontSize="16"></Label>
-                                    <Label Text="{Binding ChildEmail}" TextColor="Black" FontSize="16"></Label>
-                                    
+                                    <Label  Text="Child:" TextColor="Black" FontSize="16" ></Label>
+                                    <Label  Text="{Binding ChildEmail}"  TextColor="Black" FontSize="16"></Label>
                                     <Label Text="Parent:" TextColor="Black" FontSize="16"></Label>
                                     <Label Text="{Binding UserMail}" TextColor="Black" FontSize="16"></Label>
+                                    <Button x:Name="ChildRequest" Text="ACCEPT" IsVisible="{Binding RequestWaiting}" BackgroundColor="Green" Clicked="Accept_Button"></Button>
                                 </StackLayout>
                             </ViewCell>
+                           
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Label Text="" x:Name="ResultLabel"></Label>
                 <ImageButton 
                          Source="plusIcon.png"
                          BindingContext="/test/img/test"

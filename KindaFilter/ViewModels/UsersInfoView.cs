@@ -1,11 +1,6 @@
 ﻿using KindaFilter.Models;
 using KindaFilter.Services;
-using MvvmHelpers;
-using MvvmHelpers.Commands;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -41,7 +36,7 @@ namespace KindaFilter.ViewModels
         public UsersInfoView()
         {
             services = new DBFirebase();
-            UsersInfos = services.getUsersInfo();
+            UsersInfos = services.GetUsersInfo();
         }
 
         public async Task AddUsersInfoAsync(string DisplayName,string UserEmail,string FirstName, string LastName, string PhoneNumber, string Image)
