@@ -5,6 +5,7 @@ using Firebase.Database.Query;
 using Firebase.Storage;
 using KindaFilter.Models;
 using KindaFilter.PagesFolder;
+using KindaFilter.WebBlockerService.WebBlockerModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
@@ -236,6 +237,28 @@ namespace KindaFilter.Services
                 }
             }
         }
+        public async Task DeleteChildDevice(string ChildMail,string parentMail)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
+            try
+            {
+                FirebaseClient fc =
+                    new FirebaseClient("https://kinda-filter-default-rtdb.europe-west1.firebasedatabase.app/");
+                var result = (await fc
+                    .Child("AddAsChildRequest")
+                    .OnceAsync<AddAsChildRequest>()).FirstOrDefault(a => a.Object.ChildEmail == ChildMail && a.Object.UserMail == parentMail);
+                
+                await fc.Child("AddAsChildRequest")
+                  .Child(result.Key).DeleteAsync();
+                await App.Current.MainPage.DisplayAlert("Result", "Child Deleted", "OK!");
+
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine(except.Message);
+                await App.Current.MainPage.DisplayAlert("Result", "Something Went Wrong", "OK!");
+            }
+        }
         public async Task<FirebaseObject<UsersSettings>> SetUserSettings()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
@@ -338,6 +361,37 @@ namespace KindaFilter.Services
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public ObservableCollection<BlockSites> GetBlockSites()
+        {
+            var blockedSites = client
+              .Child("BlockSiteList")
+              .AsObservable<BlockSites>()
+              .AsObservableCollection();
+
+            if (blockedSites != null)
+                return blockedSites;
+            else
+                return null;
+        }
+
+        public async Task AddBlockedSite(string SiteID, string ProxyID, string DomainLink, string FullLink, string HttpLink, string HttpsLink)
+        {
+            BlockSites newSite = new BlockSites { DomainLink = DomainLink, FullLink = FullLink, ProxyID = ProxyID, SiteID = SiteID, HttpLink = HttpLink, HttpsLink = HttpsLink };
+            await client
+                .Child("BlockedSiteList")
+                .PostAsync(newSite);
+            await App.Current.MainPage.DisplayAlert("Result!", "Successfully registered .", "Ok!");
+        }
+
+        public async Task AddUserBlockedSite(string SiteID, string ProxyID, string DomainLink, string FullLink, string HttpLink, string HttpsLink)
+        {
+            BlockSites newSite = new BlockSites { DomainLink = DomainLink, FullLink = FullLink, ProxyID = ProxyID, SiteID = SiteID, HttpLink = HttpLink, HttpsLink = HttpsLink };
+            await client
+                .Child("UserBlockedSiteList")
+                .PostAsync(newSite);
+            await App.Current.MainPage.DisplayAlert("Result!", "Successfully registered .", "Ok!");
         }
     }
 }

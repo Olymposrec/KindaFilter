@@ -8,6 +8,7 @@ using Firebase.Database;
 using System.Linq;
 using KindaFilter.ViewModels;
 using KindaFilter.Services;
+using KindaFilter.WebBlockerService.WebBlocker;
 
 namespace KindaFilter.PagesFolder
 {
@@ -21,6 +22,10 @@ namespace KindaFilter.PagesFolder
             InitializeComponent();
             services = new DBFirebase();
             GetProfileInfo();
+
+            //One Time Code
+            //ReadSitesFromXML xx = new ReadSitesFromXML();
+            //xx.GetSitesFromXML();
         }
 
        private async void GetProfileInfo()

@@ -33,6 +33,16 @@ namespace KindaFilter.ViewModels
             NewAddedDevices = services.GetDevices();
         }
 
+        public Command<AddAsChildRequest> RemoveChild
+        {
+            get
+            {
+                return new Command<AddAsChildRequest>((item) =>
+                {
+                    NewAddedDevices.Remove(item);
+                });
+            }
+        }
         
     }
 }

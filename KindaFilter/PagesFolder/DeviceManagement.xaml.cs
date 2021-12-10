@@ -2,6 +2,8 @@
 using Firebase.Database;
 using Firebase.Database.Query;
 using KindaFilter.Models;
+using KindaFilter.Services;
+using KindaFilter.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,44 +18,15 @@ namespace KindaFilter.PagesFolder
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeviceManagement : ContentPage
     {
-       
+        DBFirebase services;
         public string WebAPIKey = "AIzaSyDQveJfg1KOrqz5_vBmj8WeQL4dFWs-umA";
-        public List<AddAsChildRequest> MyListData { get; set; }
-
-
         public DeviceManagement()
         {
             InitializeComponent();
-            //BindingContext = new AddedDevicesViewModel();
-           // GetDevices();
-           // Data.BindingContext = MyListData;
+            BindingContext = new AddedDevicesViewModel();
             
         }
 
-        public async void GetDevices()
-        {
-            FirebaseClient client = new FirebaseClient("https://kinda-filter-default-rtdb.europe-west1.firebasedatabase.app/");
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
-            var savedFirebaseAuth = GetToken();
-            var refreshedContent = authProvider.RefreshAuthAsync(savedFirebaseAuth);
-            var addedChild = (await client
-              .Child("AddAsChildRequest")
-              .OnceAsync<AddAsChildRequest>())
-              .Where(item => item.Object.UserMail == savedFirebaseAuth.User.Email)
-              .Select(obje => new AddAsChildRequest
-              {
-                  ChildEmail = obje.Object.ChildEmail,
-                  isChild = obje.Object.isChild,
-                  RequestWaiting = obje.Object.RequestWaiting,
-                  UserMail = obje.Object.UserMail
-              });
-
-            MyListData.Add((AddAsChildRequest)addedChild);
-
-
-           
-        }
-       
         private FirebaseAuth GetToken()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
@@ -109,5 +82,37 @@ namespace KindaFilter.PagesFolder
             }
         }
 
+        private async void Decline_Button(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            StackLayout listViewItem = (StackLayout)button.Parent;
+
+            Label label_childemail = (Label)listViewItem.Children[1];
+            Label label_usermail = (Label)listViewItem.Children[3];
+
+            DeleteChild(label_usermail.Text.ToString(),label_childemail.Text.ToString());
+        }
+
+        private async void DeleteChild(string label_usermail, string label_childemail)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIKey));
+            try
+            {
+                FirebaseClient fc =
+                    new FirebaseClient("https://kinda-filter-default-rtdb.europe-west1.firebasedatabase.app/");
+                var result = (await fc
+                    .Child("AddAsChildRequest")
+                    .OnceAsync<AddAsChildRequest>()).FirstOrDefault(a => a.Object.ChildEmail == label_childemail && a.Object.UserMail == label_usermail);
+
+                await fc.Child("AddAsChildRequest")
+                  .Child(result.Key).DeleteAsync();
+                await App.Current.MainPage.DisplayAlert("Result", "Child Deleted", "OK!");
+
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Result", "Something Went Wrong", "OK!");
+            }
+        }
     }
 }

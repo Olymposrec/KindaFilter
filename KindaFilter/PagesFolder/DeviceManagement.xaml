@@ -15,16 +15,36 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <StackLayout>
-                <ListView x:Name="Data"  Grid.Column="3" Grid.Row="2" ItemsSource="{Binding AddAsChildRequest}"  >
+                <ListView x:Name="Data"  Grid.Column="3" Grid.Row="2" ItemsSource="{Binding NewAddedDevices}"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell >
                                 <StackLayout Orientation="Horizontal">
                                     <Label  Text="Child:" TextColor="Black" FontSize="16" ></Label>
                                     <Label  Text="{Binding ChildEmail}"  TextColor="Black" FontSize="16"></Label>
-                                    <Label Text="Parent:" TextColor="Black" FontSize="16"></Label>
-                                    <Label Text="{Binding UserMail}" TextColor="Black" FontSize="16"></Label>
-                                    <Button x:Name="ChildRequest" Text="ACCEPT" IsVisible="{Binding RequestWaiting}" BackgroundColor="Green" Clicked="Accept_Button"></Button>
+                                    <Label Text="Parent:" TextColor="Black" FontSize="16" IsVisible="false"></Label>
+                                    <Label Text="{Binding UserMail}" TextColor="Black" FontSize="16" IsVisible="false"></Label>
+                                    <Button x:Name="ChildRequest" Text="ACCEPT" IsVisible="{Binding RequestWaiting}" 
+                                            BackgroundColor="Green" 
+                                            Clicked="Accept_Button" 
+                                            VerticalOptions="EndAndExpand" 
+                                            HorizontalOptions="EndAndExpand"
+                                            WidthRequest="70"
+                                            FontSize="10"
+                                            FontAttributes="Bold"
+                                            HeightRequest="35"
+                                            ></Button>
+                                    <Button x:Name="ChildRequestDelete" 
+                                            Text="DECLINE" 
+                                            IsVisible="{Binding !RequestWaiting}" 
+                                            BackgroundColor="Red" 
+                                            Clicked="Decline_Button" 
+                                            VerticalOptions="EndAndExpand" 
+                                             FontSize="10"
+                                             WidthRequest="70"
+                                            FontAttributes="Bold"
+                                            HeightRequest="35"
+                                            HorizontalOptions="EndAndExpand"></Button>
                                 </StackLayout>
                             </ViewCell>
                            

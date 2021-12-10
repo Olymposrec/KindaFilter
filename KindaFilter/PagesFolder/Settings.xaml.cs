@@ -6,6 +6,7 @@ using KindaFilter.Services;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -41,7 +42,7 @@ namespace KindaFilter.PagesFolder
                 if (result != null)
                 {
                     UsomProtect.IsToggled = bool.Parse(result.Object.UsomProtect);
-                        OwnProtect.IsToggled = bool.Parse(result.Object.OwnProtect);
+                    OwnProtect.IsToggled = bool.Parse(result.Object.OwnProtect);
                     CutTheNetConnect.IsToggled = bool.Parse(result.Object.CutTheNetConnect);
                     TellMeIfDangerSite.IsToggled = bool.Parse(result.Object.TellMeIfDangerSite);
                     SaveRecords.IsToggled = bool.Parse(result.Object.SaveRecords);
@@ -79,6 +80,11 @@ namespace KindaFilter.PagesFolder
                                      , BanSpecificWords, SendDailyReport, SendEmailReport, SendWeaklyEmailReport);
             }
 
+        }
+
+        private void AddSite_Clicked(object sender, EventArgs e)
+        {
+            Navigation.ShowPopup(new PopUpAddSite());
         }
     }
 }

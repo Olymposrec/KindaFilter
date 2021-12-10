@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:DataType="pagesfolder:PopUpAddSite"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns:pagesfolder="clr-namespace:KindaFilter.PagesFolder"
+            Size="300,300"
+             IsLightDismissEnabled="True"
+             x:Class="KindaFilter.PagesFolder.PopUpAddSite">
+    <StackLayout
+        Orientation="Vertical"
+        Padding="20">
+
+        <Entry x:Name="BlockSite" 
+               Placeholder="  forexample.com" 
+               CharacterSpacing="1"
+               BackgroundColor="White"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               WidthRequest="350"
+               MinimumWidthRequest="150"
+               HeightRequest="40"   
+               MinimumHeightRequest="25"
+               FontSize="16"
+               FontAttributes="Bold"
+               PlaceholderColor="Black"
+               Keyboard="Email"  
+               TextColor="Black"/>
+
+        <Grid>
+            <Button 
+               Text="Add Site" 
+               TextColor="Black"  
+               FontAttributes="Bold" 
+               FontSize="18" 
+               Margin="20"
+               BackgroundColor="white"
+              HorizontalOptions="Start"
+               VerticalOptions="Center"
+               CornerRadius="10"
+                Clicked="AddSite_Click"/>
+                
+            <Button 
+               Text="Close" 
+               TextColor="Black"  
+               FontAttributes="Bold" 
+               FontSize="18" 
+               Margin="20"
+               BackgroundColor="white"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               CornerRadius="10"
+               Clicked="CloseButton_Click"/>
+        </Grid>
+
+    </StackLayout>
+</xct:Popup>

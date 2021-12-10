@@ -138,10 +138,16 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\worldwide.png" />
     <AndroidResource Include="background.jpg" />
-    <AndroidResource Include="device_management.png" />
+    <AndroidResource Include="device_management.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="background2.jpg" />
     <Content Include="family.png" />
-    <AndroidResource Include="home_button.png" />
+    <AndroidResource Include="home_button.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="lock.png" />
     <Content Include="locked.png" />
     <Content Include="plusIcon.png" />
@@ -149,6 +155,10 @@
     <Content Include="profilico.png" />
     <Content Include="Properties\Default.rd.xml" />
     <AndroidResource Include="registers.png" />
+    <AndroidResource Include="registers2.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="Resources\Assets\family.png" />
     <Content Include="Resources\Assets\lock.png" />
     <Content Include="Resources\Assets\locked.png" />
@@ -156,9 +166,17 @@
     <Content Include="Resources\Assets\social.png" />
     <Content Include="Resources\Assets\worldwide.png" />
     <AndroidResource Include="settings.png" />
+    <AndroidResource Include="settings2.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="shield.png" />
     <Content Include="social.png" />
     <AndroidResource Include="user.png" />
+    <AndroidResource Include="user2.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="worldwide.png" />
   </ItemGroup>
   <ItemGroup>

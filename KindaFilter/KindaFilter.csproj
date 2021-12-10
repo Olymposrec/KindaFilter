@@ -11,7 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="EmbeddedResourceFile\blockedsites.xml" />
     <None Remove="Resources\Fonts\Birthstone-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResourceFile\blockedsites.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +65,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PagesFolder\PopUpAddDevice.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PagesFolder\PopUpAddSite.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PagesFolder\Profile.xaml">

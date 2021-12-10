@@ -24,7 +24,7 @@ namespace KindaFilter.PagesFolder
                 await DisplayAlert("Input Failed", "Invalid Login, try again", "OK");
 
             }
-            else if(Pass.Text!=Confirm.Text)
+            else if(Pass.Text != Confirm.Text)
             {
                 await DisplayAlert("Validation!", "Password Not match", "Ok");
             }

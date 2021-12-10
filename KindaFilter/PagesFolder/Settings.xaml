@@ -80,15 +80,27 @@
                                     Text="Save"
                                     TextColor="#ff9f00"
                                     FontAttributes="Bold" FontSize="16" 
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="StartAndExpand"
                                     WidthRequest="100"
                                     MinimumWidthRequest="30"
                                     HeightRequest="50"
                                     BackgroundColor="Black" 
                                     CornerRadius="10" 
                                     Clicked="SaveButton_Clicked"/>
-                        
+                            <Button x:Name="AddSite"
+                                    Text="Add Site"
+                                    TextColor="#ff9f00"
+                                    FontAttributes="Bold" FontSize="16" 
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="100"
+                                    MinimumWidthRequest="30"
+                                    HeightRequest="50"
+                                    BackgroundColor="Black" 
+                                    CornerRadius="10" 
+                                    Clicked="AddSite_Clicked"/>
+
 
                         </Grid>
 
